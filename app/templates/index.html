@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Météo Sénégal</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+    <div class="container mx-auto px-4 py-8">
+        <h1 class="text-3xl font-bold text-center mb-8">Météo en temps réel - Sénégal</h1>
+        
+        <div id="weather-cards" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Les cartes météo en temps réel seront insérées ici -->
+        </div>
+
+        <h2 class="text-2xl font-bold mt-12">Historique météo</h2>
+        <table class="table-auto border-collapse w-full mt-4">
+            <thead>
+                <tr class="bg-gray-200">
+                    <th class="border px-4 py-2">Ville</th>
+                    <th class="border px-4 py-2">Température (°C)</th>
+                    <th class="border px-4 py-2">Description</th>
+                    <th class="border px-4 py-2">Pression (hPa)</th>
+                    <th class="border px-4 py-2">Humidité (%)</th>
+                    <th class="border px-4 py-2">Timestamp</th>
+                </tr>
+            </thead>
+            <tbody id="weather-history">
+                <!-- Les lignes du tableau seront insérées ici -->
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        async function fetchWeatherData() {
+            try {
+                const response = await fetch('/api/weather/current');
+                const data = await response.json();
+                
+                const weatherCards = document.getElementById('weather-cards');
+                weatherCards.innerHTML = data.map(city => `
+                    <div class="bg-white rounded-lg shadow-lg p-6">
+                        <h2 class="text-2xl font-bold mb-4">${city.city}</h2>
+                        <div class="space-y-2">
+                            <p class="text-4xl font-bold">${city.temperature}°C</p>
+                            <p class="text-gray-600">${city.description}</p>
+                            <div class="grid grid-cols-2 gap-4 mt-4">
+                                <div>
+                                    <p class="text-gray-500">Humidité</p>
+                                    <p class="font-bold">${city.humidity}%</p>
+                                </div>
+                                <div>
+                                    <p class="text-gray-500">Pression</p>
+                                    <p class="font-bold">${city.pressure} hPa</p>
+                                </div>
+                            </div>
+                            <p class="text-sm text-gray-500 mt-4">
+                                Dernière mise à jour: ${new Date(city.timestamp).toLocaleString()}
+                            </p>
+                        </div>
+                    </div>
+                `).join('');
+            } catch (error) {
+                console.error('Erreur lors de la récupération des données:', error);
+            }
+        }
+
+        async function fetchWeatherHistory() {
+            try {
+                const response = await fetch('/api/weather/history/all');
+                const data = await response.json();
+                
+                const weatherHistory = document.getElementById('weather-history');
+                weatherHistory.innerHTML = data.map(row => `
+                    <tr>
+                        <td class="border px-4 py-2">${row.city}</td>
+                        <td class="border px-4 py-2">${row.temperature}°C</td>
+                        <td class="border px-4 py-2">${row.description}</td>
+                        <td class="border px-4 py-2">${row.pressure} hPa</td>
+                        <td class="border px-4 py-2">${row.humidity}%</td>
+                        <td class="border px-4 py-2">${new Date(row.timestamp).toLocaleString()}</td>
+                    </tr>
+                `).join('');
+            } catch (error) {
+                console.error('Erreur lors de la récupération de l\'historique:', error);
+            }
+        }
+
+        // Mettre à jour les données
+        fetchWeatherData();
+        fetchWeatherHistory();
+        setInterval(fetchWeatherData, 300000);
+        setInterval(fetchWeatherHistory, 300000);
+    </script>
+</body>
+</html>
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Météo Sénégal</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+    <div class="container mx-auto px-4 py-8">
+        <h1 class="text-3xl font-bold text-center mb-8">Météo en temps réel - Sénégal</h1>
+        
+        <div id="weather-cards" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        </div>
+    </div>
+
+    <script>
+        async function fetchWeatherData() {
+            try {
+                const response = await fetch('/api/weather/current');
+                const data = await response.json();
+                
+                const weatherCards = document.getElementById('weather-cards');
+                weatherCards.innerHTML = data.map(city => `
+                    <div class="bg-white rounded-lg shadow-lg p-6">
+                        <h2 class="text-2xl font-bold mb-4">${city.city}</h2>
+                        <div class="space-y-2">
+                            <p class="text-4xl font-bold">${city.temperature}°C</p>
+                            <p class="text-gray-600">${city.description}</p>
+                            <div class="grid grid-cols-2 gap-4 mt-4">
+                                <div>
+                                    <p class="text-gray-500">Humidité</p>
+                                    <p class="font-bold">${city.humidity}%</p>
+                                </div>
+                                <div>
+                                    <p class="text-gray-500">Pression</p>
+                                    <p class="font-bold">${city.pressure} hPa</p>
+                                </div>
+                            </div>
+                            <p class="text-sm text-gray-500 mt-4">
+                                Dernière mise à jour: ${new Date(city.timestamp).toLocaleString()}
+                            </p>
+                        </div>
+                    </div>
+                `).join('');
+            } catch (error) {
+                console.error('Erreur lors de la récupération des données:', error);
+            }
+        }
+
+        // Mettre à jour les données toutes les 5 minutes
+        fetchWeatherData();
+        setInterval(fetchWeatherData, 300000);
+    </script>
+</body>
+</html> -->
