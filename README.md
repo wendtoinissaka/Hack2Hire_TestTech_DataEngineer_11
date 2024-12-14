@@ -4,9 +4,9 @@ Ce projet est une application web qui utilise Flask pour afficher et stocker les
 
 ## EQUIPE
 
-1. **[Wendtoin Issaka OUEDRAOGO](#)**  ------------------>  [CV](cv/issaka_cv.pdf)  
+1. **[Wendtoin Issaka OUEDRAOGO](#)**  ------------------>  [CV](cv/cv_issaka.pdf)  
 
-2. **[ADJOBO Mafoya Elie Abissola](#)**  ------------------->  [CV](cv/mafoya_cv.pdf)
+2. **[ADJOBO Mafoya Elie Abissola](#)**  ------------------->  [CV](cv/CV%20Elie%20Adjobo.pdf)
 
 ![home](imgs/image.png)
 
