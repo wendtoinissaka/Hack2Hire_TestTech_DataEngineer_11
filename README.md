@@ -25,8 +25,8 @@ Ce projet est une application web qui utilise Flask pour afficher et stocker les
 
 1. Clonez ce dépôt :
    ```bash
-   git clone <url-du-dépôt>
-   cd <nom-du-dossier>
+   git clone https://github.com/wendtoinissaka/databeez-projet-data-engineer.git
+   cd databeez-projet-data-engineer
    ```
 
 2. Créez un fichier .env en vous basant sur le fichier .env copy

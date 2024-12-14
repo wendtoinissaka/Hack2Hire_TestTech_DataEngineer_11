@@ -16,8 +16,8 @@ app = Flask(__name__)
 API_KEY = os.getenv('OPENWEATHER_API_KEY')
 BASE_URL = "https://api.openweathermap.org/data/2.5/weather"
 CITIES = ["Dakar", "Thiès"]
-# DATABASE_URL = os.getenv('DATABASE_URL')
-DATABASE_URL = os.getenv('DATABASE_URL', 'postgresql://elcapo:elcapo@db/meteo_db')
+DATABASE_URL = os.getenv('DATABASE_URL')
+# DATABASE_URL = os.getenv('DATABASE_URL', 'postgresql://elcapo:elcapo@db/meteo_db')
 
 def create_table():
     """Crée la table weather si elle n'existe pas."""
