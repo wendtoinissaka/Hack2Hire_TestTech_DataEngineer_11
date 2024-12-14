@@ -145,6 +145,22 @@ def get_all_weather_history():
             results = cur.fetchall()
             return jsonify([dict(row) for row in results])
 
+@app.route('/api/weather/history/ten')
+def get_all_weather_history_ten():
+    """Endpoint API pour obtenir les 10 dernières historiques météo de toutes les villes."""
+    with get_db_connection() as conn:
+        with conn.cursor(cursor_factory=RealDictCursor) as cur:
+            cur.execute("""
+                SELECT city, temperature, description, pressure, humidity, timestamp
+                FROM weather
+                ORDER BY timestamp DESC
+                LIMIT 10
+            """)
+            results = cur.fetchall()
+            return jsonify([dict(row) for row in results])
+
+
+
 if __name__ == '__main__':
     create_table()
     app.run(host='0.0.0.0', port=5000)

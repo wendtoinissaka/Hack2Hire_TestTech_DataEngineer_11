@@ -19,7 +19,6 @@
         <table class="table-auto border-collapse w-full mt-4">
             <thead>
                 <tr class="bg-gray-200">
-                    <th class="border px-4 py-2">Numéro</th>
                     <th class="border px-4 py-2">Ville</th>
                     <th class="border px-4 py-2">Température (°C)</th>
                     <th class="border px-4 py-2">Description</th>
@@ -80,9 +79,8 @@
                 const data = await response.json();
                 
                 const weatherHistory = document.getElementById('weather-history');
-                weatherHistory.innerHTML = data.map((row, index) => `
+                weatherHistory.innerHTML = data.map(row => `
                     <tr>
-                        <td class="border px-4 py-2">${index + 1}</td>
                         <td class="border px-4 py-2">${row.city}</td>
                         <td class="border px-4 py-2">${row.temperature}°C</td>
                         <td class="border px-4 py-2">${row.description}</td>

@@ -2,6 +2,12 @@
 
 Ce projet est une application web qui utilise Flask pour afficher et stocker les données météo de différentes villes en se basant sur l'API OpenWeatherMap. Les données météo sont enregistrées dans une base de données PostgreSQL et peuvent être consultées via des endpoints API ou une interface web.
 
+## EQUIPE
+
+1. **[Wendtoin Issaka OUEDRAOGO](#)**  ------------------>  [CV](cv/issaka_cv.pdf)  
+
+2. **[ADJOBO Mafoya Elie Abissola](#)**  ------------------->  [CV](cv/mafoya_cv.pdf)
+
 ![home](imgs/image.png)
 
 ---
