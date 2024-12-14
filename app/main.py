@@ -94,7 +94,7 @@ def fetch_and_store_weather():
 
 # Initialiser le scheduler
 scheduler = BackgroundScheduler()
-# scheduler.add_job(func=fetch_and_store_weather, trigger="interval", hours=1)  # Exécuter toutes les  heures
+scheduler.add_job(func=fetch_and_store_weather, trigger="interval", hours=1)  # Exécuter toutes les  heures
 # scheduler.add_job(func=fetch_and_store_weather, trigger="interval", minutes=1)  # Exécuter tous les minutes
 scheduler.start()
 
@@ -102,6 +102,7 @@ scheduler.start()
 def index():
     """Page d'accueil."""
     return render_template('index.html')
+
 
 @app.route('/api/weather/current')
 def get_current_weather():
