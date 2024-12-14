@@ -1,22 +1,38 @@
-FROM python:3.9-slim
+FROM python:3.10-slim
 
+# Définir le répertoire de travail
 WORKDIR /app
 
-# Installation des dépendances système
-RUN apt-get update && \
-    apt-get install -y --no-install-recommends \
-    libpq-dev \
-    gcc \
-    && rm -rf /var/lib/apt/lists/*
-
-# Copie des fichiers de dépendances
+# Installer les dépendances
 COPY requirements.txt .
-
-# Installation des dépendances Python
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copie du code source
-COPY ./app .
+# Copier tout le code directement dans /app
+COPY . .
 
-# Commande par défaut
-CMD ["python", "main.py"]
+# Exposer le port 5000 pour Flask
+EXPOSE 5000
+
+# Attendre que la base de données soit prête avant l'initialisation
+CMD ["sh", "-c", "python app/init-db.py && python app/main.py"]
+
+
+
+# FROM python:3.10-slim
+
+# # Définir le répertoire de travail
+# WORKDIR /app
+
+# # Installer les dépendances
+# COPY requirements.txt .
+# RUN pip install --no-cache-dir -r requirements.txt
+
+# # Copier tout le code directement dans /app
+# COPY . .
+
+# # Exposer le port 5000 pour Flask
+# EXPOSE 5000
+
+# # Démarrer l'application avec le bon chemin
+# CMD ["python", "app/main.py"]
+
