@@ -6,7 +6,7 @@ Ce projet est une application web qui utilise Flask pour afficher et stocker les
 
 1. **[Wendtoin Issaka OUEDRAOGO](#)**  ------------------>  [CV](cv/cv_issaka.pdf)  
 
-2. **[ADJOBO Mafoya Elie Abissola](#)**  ------------------->  [CV](cv/CV%20Elie%20Adjobo.pdf)
+2. **[Mafoya Elie Abissola ADJOBO](#)**  ------------------->  [CV](cv/CV%20Elie%20Adjobo.pdf)
 
 ![home](imgs/image.png)
 
@@ -69,6 +69,18 @@ Ce projet est une application web qui utilise Flask pour afficher et stocker les
      ```
         GET /api/weather/history/all
      ```
+---
+
+## Dashboards realisés avec PowerBI
+
+1. Prévision météo pour la région de Dakar :
+
+![image](https://github.com/user-attachments/assets/cf269fc6-5e1f-4267-9993-2cd08bd62024)
+
+2. Prévision météo pour la région de Thiès :
+
+![image](https://github.com/user-attachments/assets/b62e6469-eace-47d2-a7e4-62fa3de29088)
+
 ---
 ## Contributeurs
 
