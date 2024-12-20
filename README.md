@@ -1,13 +1,17 @@
 
 # 🌤️ Weather Data Pipeline avec Apache Airflow 🚀
 
+
 ## 📝 Description du Projet
+
 
 Ce projet est une solution d'automatisation de pipeline de données météorologiques utilisant Apache Airflow pour orchestrer et automatiser la récupération, la transformation (selection des caractéristiques souhaiter) et le chargement (ETL) des données météo des villes de Dakatr et de Saint-Louis. Les données sont récupérées via l'API [OpenWeatherMap](https://openweathermap.org/) 🌍. La version gratuite de l'API permet de d'avoir les données de la [météo courante](https://openweathermap.org/current#one) et d'avoir des previsions météo pour les [5 prochains jours](https://openweathermap.org/forecast5#data). Les données obtenus a la fin du processus sont stockées dans une base de données PostgreSQL gratuite et dsponible sur [Render.com](https://render.com/).
 
 L'objectif final est de créer des dashboards interactifs avec Power BI 📊 pour suivre et analyser l'évolution de la température et d'autres indicateurs météorologiques.
 
+
 ---
+
 
 ## 🚀 Fonctionnalités Principales
 
@@ -21,7 +25,9 @@ L'objectif final est de créer des dashboards interactifs avec Power BI 📊 pou
 
 🗂️ Gestion des Fichiers Intermédiaires : Les données brutes et transformées sont enregistrées sous format JSON entre les différentes étapes du pipeline.
 
+
 ---
+
 
 ## ⚙️ Technologies Utilisées
 
@@ -37,9 +43,16 @@ L'objectif final est de créer des dashboards interactifs avec Power BI 📊 pou
 
 🐳 Conteneurisation : Docker
 
+
 ---
 
+
 ## 🏗️ Architecture du Pipeline
+
+Notre système est representé par le schéma suivant 
+
+![image](https://github.com/user-attachments/assets/5d37537f-d726-4275-97cb-2242c04db985)
+
 
 
 
@@ -50,6 +63,7 @@ L'objectif final est de créer des dashboards interactifs avec Power BI 📊 pou
 
 
 ## 🔄 Déroulement du Pipeline ETL
+
 
 1. 🌐 Récupération des Données (Phase 1)
 
@@ -76,41 +90,49 @@ Les données présentes dans PostgreSQL sont exploitées pour créer des visuali
 Ci-dessous les differents dashboards réalisés : 
 
 
+
 1. Prévision météo pour la région de Dakar :
 
-![image](https://github.com/user-attachments/assets/cf269fc6-5e1f-4267-9993-2cd08bd62024)
+            ![image](https://github.com/user-attachments/assets/cf269fc6-5e1f-4267-9993-2cd08bd62024)
+
 
 2. Prévision météo pour la région de Thiès :
 
-![image](https://github.com/user-attachments/assets/b62e6469-eace-47d2-a7e4-62fa3de29088)
+            ![image](https://github.com/user-attachments/assets/b62e6469-eace-47d2-a7e4-62fa3de29088)
 
 
 
 
 ---
 
-✅ Pré-requis
+
+# ✅ Pré-requis
+
 
 - Python 3.10 ou plus
 
-🌀 Apache Airflow installé et configuré.
+- 🌀 Apache Airflow installé et configuré.
+ 
+- 🐳 Docker installé.
 
-🐳 Docker installé.
+- Accès à l'API OpenWeatherMap (Clé API requise).
 
-Accès à l'API OpenWeatherMap (Clé API requise).
+- PostgreSQL (hébergé ou local avec accès distant configuré).
 
-PostgreSQL (hébergé ou local avec accès distant configuré).
+- Power BI pour les dashboards.
 
-Power BI pour les dashboards.
 
 ---
 
+
 ## 🛠️ Installation et Configuration
+
 
 1. 📥 Clonez le Référentiel
 
-      git clone " "
-      cd " "
+            git clone https://github.com/wendtoinissaka/Hack2Hire_TestTech_DataEngineer_11.git
+            cd  Hack2Hire_TestTech_DataEngineer_11
+
 
 2. 🐳 Lancer avec Docker Compose
 
@@ -124,24 +146,28 @@ Acceder a l'interface
 
 Les identifiants sont "Airflow" pour le login et "Airflow pour le password.
 
+
 ---
+
 
 ## 🔧 Utilisation
 
-Déclenchez le DAG pour récupérer les données de l'API.
+- Déclenchez le DAG pour récupérer les données de l'API.
 
-Laissez Airflow exécuter les transformations automatiques.
+- Laissez Airflow exécuter les transformations automatiques.
 
-Consultez la base de données PostgreSQL pour vérifier l'ingestion des données.
+- Consultez la base de données PostgreSQL pour vérifier l'ingestion des données.
 
-Verifier les logs en cas de problemes
+- Verifier les logs en cas de problemes
 
-Créez des dashboards sur Power BI connectés à la base PostgreSQL.
+- Créez des dashboards sur Power BI connectés à la base PostgreSQL.
 
 
 ---
 
+
 ## 👤👤 Auteurs
+
 
 1. **[Wendtoin Issaka OUEDRAOGO](#)**  ------------------>  [CV](cv/cv_issaka.pdf)  
 
