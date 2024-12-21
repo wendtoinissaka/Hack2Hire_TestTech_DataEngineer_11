@@ -93,12 +93,12 @@ Ci-dessous les differents dashboards réalisés :
 
 1. Prévision météo pour la région de Dakar :
 
-            ![image](https://github.com/user-attachments/assets/cf269fc6-5e1f-4267-9993-2cd08bd62024)
+![image](https://github.com/user-attachments/assets/cf269fc6-5e1f-4267-9993-2cd08bd62024)
 
 
 2. Prévision météo pour la région de Thiès :
 
-            ![image](https://github.com/user-attachments/assets/b62e6469-eace-47d2-a7e4-62fa3de29088)
+![image](https://github.com/user-attachments/assets/b62e6469-eace-47d2-a7e4-62fa3de29088)
 
 
 
